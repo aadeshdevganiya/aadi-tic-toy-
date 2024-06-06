@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toy</title>
+
+    <style>
+        body {
+            background-color: #a42cf6;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        button {
+            background-color: #FFF;
+            width: 100px;
+            height: 100px;
+            color: #000;
+            margin: 5px;
+            box-shadow: #000 2px 2px 5px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .text-center {
+            text-align: center;
+
+        }
+        .m{
+            margin: 20px 0;
+        }
+        
+        .win {
+            background-color: #FFF;
+            border-radius: 20px;
+            width: 100px;
+            height: 30px;
+           
+        }
+        #win{
+            color: #fff;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <div class="text-center">
+            <h2 id="win"></h2>
+        </div>
+        <div class="flex">
+            <button id="btn1"></button>
+            <button id="btn2"></button>
+            <button id="btn3"></button>
+        </div>
+
+        <div class="flex">
+            <button id="btn4"></button>
+            <button id="btn5"></button>
+            <button id="btn6"></button>
+        </div>
+
+        <div class="flex">
+            <button id="btn7"></button>
+            <button id="btn8"></button>
+            <button id="btn9"></button>
+        </div>
+        <div class="div2 text-center m">
+            <button id="reset" class="win" onclick="myfunc_2()">Reset</button>
+        </div>
+    </div>
+
+    <script>
+        let btn1 = document.getElementById("btn1")
+        let btn2 = document.getElementById("btn2")
+        let btn3 = document.getElementById("btn3")
+        let btn4 = document.getElementById("btn4")
+        let btn5 = document.getElementById("btn5")
+        let btn6 = document.getElementById("btn6")
+        let btn7 = document.getElementById("btn7")
+        let btn8 = document.getElementById("btn8")
+        let btn9 = document.getElementById("btn9")
+
+        let turn = "X"
+
+        function checkBTN(el) {
+
+
+            if (turn == "X") {
+                turn = "O"
+            } else {
+                turn = "X"
+            }
+            el.innerHTML = turn
+            el.disabled = true
+
+            if (btn1.innerHTML === 'X' && btn2.innerHTML === 'X' && btn3.innerHTML === 'X' ||
+                btn4.innerHTML === 'X' && btn5.innerHTML === 'X' && btn6.innerHTML === 'X' ||
+                btn7.innerHTML === 'X' && btn8.innerHTML === 'X' && btn9.innerHTML === 'X' ||
+                btn1.innerHTML === 'X' && btn3.innerHTML === 'X' && btn7.innerHTML === 'X' ||
+                btn2.innerHTML === 'X' && btn5.innerHTML === 'X' && btn8.innerHTML === 'X' ||
+                btn3.innerHTML === 'X' && btn6.innerHTML === 'X' && btn9.innerHTML === 'X' ||
+                btn1.innerHTML === 'X' && btn5.innerHTML === 'X' && btn9.innerHTML === 'X' ||
+                btn3.innerHTML === 'X' && btn5.innerHTML === 'X' && btn7.innerHTML === 'X'
+            ) {
+                document.getElementById('win').innerHTML = 'X is win'
+            } else if (
+                btn1.innerHTML === 'O' && btn2.innerHTML === 'O' && btn3.innerHTML === 'O' ||
+                btn4.innerHTML === 'O' && btn5.innerHTML === 'O' && btn6.innerHTML === 'O' ||
+                btn7.innerHTML === 'O' && btn8.innerHTML === 'O' && btn9.innerHTML === 'O' ||
+                btn1.innerHTML === 'O' && btn3.innerHTML === 'O' && btn7.innerHTML === 'O' ||
+                btn2.innerHTML === 'O' && btn5.innerHTML === 'O' && btn8.innerHTML === 'O' ||
+                btn3.innerHTML === 'O' && btn6.innerHTML === 'O' && btn9.innerHTML === 'O' ||
+                btn1.innerHTML === 'O' && btn5.innerHTML === 'O' && btn9.innerHTML === 'O' ||
+                btn3.innerHTML === 'O' && btn5.innerHTML === 'O' && btn7.innerHTML === 'O'
+            ) {
+                document.getElementById('win').innerHTML = 'O is win'
+            }
+        }
+
+        function myfunc_2() {
+            location.reload();
+            b1 = b2 = b3 = b4 = b5 = b6 = b7 = b8 = b9 = '';
+        }
+
+        btn1.addEventListener('click', () => checkBTN(btn1))
+        btn2.addEventListener('click', () => checkBTN(btn2))
+        btn3.addEventListener('click', () => checkBTN(btn3))
+        btn4.addEventListener('click', () => checkBTN(btn4))
+        btn5.addEventListener('click', () => checkBTN(btn5))
+        btn6.addEventListener('click', () => checkBTN(btn6))
+        btn7.addEventListener('click', () => checkBTN(btn7))
+        btn8.addEventListener('click', () => checkBTN(btn8))
+        btn9.addEventListener('click', () => checkBTN(btn9))
+
+
+    </script>
+
+</body>
+
+</html>
